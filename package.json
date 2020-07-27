@@ -5,8 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "server": "ts-node-dev src/start.ts --respawn --watch src",
-    "dev": "concurrently \"npm run server\" \"npm run build:watch\"",
+    "terminal": "ts-node ./src/io/run.ts",
     "lint": "eslint views --ext .ts,.tsx",
     "build": "webpack --config ./webpack.config.js --mode development",
     "build:watch": "webpack --config ./webpack.config.js --mode development --watch",
@@ -31,8 +30,10 @@
     "@fortawesome/free-solid-svg-icons": "~5.13.1",
     "@fortawesome/react-fontawesome": "~0.1.11",
     "axios": "~0.19.2",
-    "blueprint-form": "~1.0.8",
+    "blueprint-form": "~1.1.11",
     "classcat": "~4.1.0",
+    "inquirer": "~7.3.3",
+    "js-yaml": "~3.14.0",
     "koa": "~2.13.0",
     "koa-body": "~4.2.0",
     "koa-logger": "~3.2.1",
@@ -64,6 +65,8 @@
     "@storybook/react": "~5.3.19",
     "@types/chai": "~4.2.11",
     "@types/chai-http": "~4.2.0",
+    "@types/inquirer": "~7.3.0",
+    "@types/js-yaml": "~3.12.5",
     "@types/koa": "~2.11.3",
     "@types/koa-mount": "~4.0.0",
     "@types/koa-router": "~7.4.1",
@@ -102,9 +105,11 @@
     "ts-node": "~8.10.2",
     "ts-node-dev": "~1.0.0-pre.50",
     "typescript": "~3.9.5",
+    "url-loader": "~4.1.0",
     "webpack": "~4.43.0",
     "webpack-bundle-analyzer": "~3.8.0",
     "webpack-cli": "~3.3.12",
+    "webpack-livereload-plugin": "~2.3.0",
     "webpack-merge": "~4.2.2"
   }
 }

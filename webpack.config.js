@@ -1,7 +1,8 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   mode: 'development',
@@ -22,10 +23,13 @@ module.exports = {
       template: './views/index.html',
       scriptLoading: 'defer'
     }),
+    /**
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false
-    })
+    }),
+    */
+    new LiveReloadPlugin()
   ],
   module: {
     rules: [
@@ -58,6 +62,21 @@ module.exports = {
         options: {
           name: '[name].[contenthash].[ext]',
           outputPath: 'fonts'
+        }
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[hash].[ext]'
+        }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[contenthash].[ext]',
+          outputPath: 'images'
         }
       }
     ],
