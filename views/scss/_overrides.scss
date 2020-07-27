@@ -1,0 +1,46 @@
+// Label
+label.bp3-label {
+  font-weight: 600;
+}
+
+// Helper text
+.bp3-form-group .bp3-form-helper-text {
+  font-size: 16px !important;
+  padding: $space--2 0;
+}
+
+// Button
+.bp3-button.button-text-ellipsis .bp3-button-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Weekday
+
+.bp3-weekday .bp3-checkbox {
+  width: 12.999990%;
+  margin-right: 1.5%;
+  padding: 10px;
+  border: 1px solid $brand;
+  border-radius: $pt-border-radius;
+  background: $white;
+  text-indent: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.bp3-weekday .bp3-checkbox-checked {
+  background: $brand;
+  color: $white;
+  font-weight: 600;
+}
+
+.bp3-weekday .bp3-checkbox:last-of-type {
+  margin-right: 0;
+}
+
+.bp3-weekday .bp3-control:not(.bp3-align-right) .bp3-control-indicator {
+  margin-left: 0;
+}
+

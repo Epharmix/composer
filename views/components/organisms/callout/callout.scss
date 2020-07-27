@@ -1,0 +1,11 @@
+@import '../../../scss/bp-overrides';
+
+$ns: 'bp3';
+
+.#{$ns}-callout {
+  @each $intent, $color in $pt-intent-colors {
+    &.#{$ns}-intent-#{$intent} {
+      background-color: rgba($color, 0.125);
+    }
+  }
+}

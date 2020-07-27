@@ -1,0 +1,22 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "outDir": ".app",
+    "target": "es6",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": [
+      "koa-body",
+      "mocha"
+    ]
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

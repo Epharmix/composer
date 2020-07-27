@@ -1,0 +1,9 @@
+// For opacity and box shadow utility classes
+
+// Box shadow
+// Blueprint classes often override box-shadow classes
+// so we use !important to ensure the styles get applied
+.shadow-blue { box-shadow: 1px 1px 3px $blue !important }
+.shadow-none { box-shadow: none !important }
+
+.shadow-none-input input { box-shadow: none !important }

@@ -1,0 +1,96 @@
+/*
+
+  Margin/padding utility class generator inspired by BASSCSS.
+  http://www.basscss.com/#basscss-margin
+
+  No negative margins for now.
+
+  .{spacing-type}{direction}-{multiplier}
+
+  spacing-type
+    m = margin
+    p = padding
+
+  direction
+    a = all
+    t = top
+    r = right
+    b = bottom
+    l = left
+    x = left and right
+    y = top and bottom
+
+  multiplier
+    # = $spacing-base / 4
+
+  ex) where $spacing-base / 4 = 3.75px
+
+  .my-0 = margin-top: 0; margin-bottom: 0;
+  .ma-4 = margin: 15px;
+  .pt-2 = padding-top: 7.5px;
+
+ */
+
+ $steps: (0, 1, 2, 3, 4, 5, 6, 7, 8);
+ $dir_map: (
+   'a':'',
+   't':'-top',
+   'r':'-right',
+   'b':'-bottom',
+   'l':'-left',
+   'x': '',
+   'y': ''
+ );
+ 
+ $space_map: (
+   0: 0,
+   1: $space--1,
+   2: $space--2,
+   3: $space--3,
+   4: $space--4,
+   5: $space--5,
+   6: $space--6,
+   7: $space--7,
+   8: $space--8
+ );
+
+ $importants: (true, false);
+ 
+ @each $s in $steps {
+   @each $d, $dir in $dir_map {
+      @each $important in $importants {
+        $space: map_get($space_map, $s);
+        $classSuffix: if($important, '-important', '');
+        $ruleSuffix: if($important, !important, null);
+        .m#{$d}-#{$s}#{$classSuffix} {
+          @if $d == 'x' {
+            margin-left: $space $ruleSuffix;
+            margin-right: $space $ruleSuffix;
+          }
+          @else if $d == 'y' {
+            margin-top: $space $ruleSuffix;
+            margin-bottom: $space $ruleSuffix;
+          }
+          @else {
+            margin#{$dir}: $space $ruleSuffix;
+          }
+        }
+        .p#{$d}-#{$s}#{$classSuffix} {
+          @if $d == 'x' {
+            padding-left: $space $ruleSuffix;
+            padding-right: $space $ruleSuffix;
+          }
+          @else if $d == 'y' {
+            padding-top: $space $ruleSuffix;
+            padding-bottom: $space $ruleSuffix;
+          }
+          @else {
+            padding#{$dir}: $space $ruleSuffix;
+          }
+        }
+      }
+   }
+ }
+
+ // One-off spacings
+ .mt-100 { margin-top: 100px }

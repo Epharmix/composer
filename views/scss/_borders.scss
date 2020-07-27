@@ -1,0 +1,13 @@
+// Border utility classes
+.border-solid { border-style: solid; }
+
+// Border width
+.border-0 { border-width: 0 !important }
+.border-1 { border-width: 1px !important }
+
+.border-1-input input { border-width: 1px !important }
+
+// Border radius
+.rounded-none { border-radius: 0 !important }
+
+.rounded-none-input input { border-radius: 0 !important }

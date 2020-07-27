@@ -1,0 +1,40 @@
+// $pt-grid-size = 13px; react-grid gutter = 26px
+$grid-gutter-width: $pt-grid-size * 2;
+// Base unit, from which all the things are calculated!
+$base-unit: $pt-grid-size;
+
+// Font stacks
+$font-sans-stack: $pt-font-family;
+$font-serif-stack: "Canela Text", "Georgia", serif;
+
+$sans-size-map: (
+  xs:   ( fontSize: 11px, lineHeight: 13px ),
+  sm:   ( fontSize: 13px, lineHeight: 19.5px ),
+  md:   ( fontSize: 15px, lineHeight: 19.5px ),
+  lg:   ( fontSize: 20px, lineHeight: 26px ),
+  xl:   ( fontSize: 25px, lineHeight: 34.5px ),
+  xxl:  ( fontSize: 31px, lineHeight: 45.5px ),
+  xxxl: ( fontSize: 39px, lineHeight: 52px )
+);
+
+/* Serif is slightly smaller than sans-serif */
+$serif-size-map: (
+  xs:   ( fontSize: 11px, lineHeight: 13px ),
+  sm:   ( fontSize: 13px, lineHeight: 19.5px ),
+  md:   ( fontSize: 16px, lineHeight: 19.5px ),
+  lg:   ( fontSize: 21px, lineHeight: 26px ),
+  xl:   ( fontSize: 26px, lineHeight: 34.5px ),
+  xxl:  ( fontSize: 32px, lineHeight: 45.5px ),
+  xxxl: ( fontSize: 41px, lineHeight: 52px )
+);
+
+// Spacing scale
+$spacing-base: $base-unit / 4;
+$space--1: $spacing-base;
+$space--2: $spacing-base * 2;
+$space--3: $spacing-base * 3;
+$space--4: $spacing-base * 4;
+$space--5: $spacing-base * 5;
+$space--6: $spacing-base * 6;
+$space--7: $spacing-base * 7;
+$space--8: $spacing-base * 8;

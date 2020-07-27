@@ -1,0 +1,124 @@
+$color_map: (
+  black: $black,
+  brand-black: $brand-black,
+  white: $white,
+  brand: $brand,
+  brand-white: $brand-white,
+  purple: $purple,
+  red: $red,
+  yellow: $yellow,
+  green: $green,
+  blue: $blue,
+  grey: $grey,
+);
+
+/** 
+ * Get global <color> for <string> color name
+ * @param {string} color - Name, or key, of color declared in global $color_map
+ */
+@function getColor($color) { @return map-get($color_map, $color); }
+
+/**
+ * Simple color to rgba mixin
+ * @function
+ * @param {color} color - Color to change alpha of
+ * @param {float} alpha - New alpha between 0.0 and 1.0
+ */
+@function getColorWithAlpha($color, $alpha) { @return rgba($color, $alpha); }
+
+/** 
+ * Generate shades or tints of base colors
+ * @function
+ * @param {string} color - Global color name
+ * @param {integer} level - Level of tint or shade between -7 and 7, negative numbers produce shades, or darker mixes
+ */
+@function getColorWithLevel($color, $level) {
+  $percents: 100%, 85%, 70%, 55%, 40%, 25%, 10%, 5%;
+  $colorValue: getColor($color);
+  @if $level != 0 {
+    @if abs($level) > length($percents) { @error "#{$level} is out of $percents range."; }
+    // Given $level = 2, the below function will return 85%
+    $percentValue: nth($percents, abs($level));
+    // Create shade of color
+    @if $level < 0 { @return mix($colorValue, getColor(black), $percentValue); }
+    // Create tint of color
+    @else { @return mix($colorValue, getColor(white), $percentValue); }
+  }
+}
+
+/**
+ * Simple linear-gradient mixin
+ * @mixin
+ * @param {color} start - The starting color of the gradient
+ * @param {color} end - The terminating color of the gradient
+ * @param {string} direction - The direction of the gradient, either horizontal or vertical
+ * @param {dimension} height - The height of gradient as a CSS dimension, not a string
+ */
+@mixin makeGradient($start, $end, $direction: 'horizontal', $height: 100%) {
+  $dir: 'to right';
+  @if $direction == 'vertical' { $dir: 'to bottom'; }
+  @if type-of($height) == 'string' { @error "The string `#{$height}` is not a valid input for $height; use a dimension instead. Usually this means just using #{$height} without quotes."; }
+  background: $start;
+  background: linear-gradient(#{$dir}, $start 0%, $end $height);
+}
+
+// Utility classes
+
+// Text colors
+.text-color-inherit { color: inherit }
+.text-color-inherit-important { color: inherit !important }
+
+.text-brand { color: $brand }
+.text-grey { color: $grey }
+.text-white { color: $white }
+.text-brand-white { color: $brand-white }
+.text-green { color: $green }
+.text-blue { color: $blue }
+.text-black { color: $black !important }
+
+.text-intent-none { color: $gray1; }
+.text-intent-primary { color: $blue1; }
+.text-intent-success { color: $green1; }
+.text-intent-warning { color: $orange1; }
+.text-intent-danger { color: $red1; }
+
+.hover-text-grey:hover { color: $grey }
+
+.text-white-input input { color: $white }
+
+// Background colors
+.bg-black { background-color: $black }
+.bg-grey { background-color: $grey }
+.bg-blue { background-color: $blue }
+.bg-brand { background-color: $brand }
+.bg-white { background-color: $white }
+
+.bg-brand-important { background-color: $brand !important }
+
+.bg-intent-none { background-color: $gray1; }
+.bg-intent-primary { background-color: $blue3; }
+.bg-intent-success { background-color: $green4; color: $pt-text-color; }
+.bg-intent-warning { background-color: $orange4; color: $pt-text-color; }
+.bg-intent-danger { background-color: $red4; color: $pt-text-color; }
+
+.hover-bg-brand:hover { background-color: $brand }
+.hover-bg-brand-important:hover { background-color: $brand !important }
+
+.bg-grey-input input { background-color: $grey }
+
+// Background gradients
+.bg-grad-ltr-none-brand-white { @include makeGradient(getColorWithAlpha($brand-black, 0.25), $brand-white); }
+.bg-grad-ltr-primary-brand-white { @include makeGradient(getColorWithAlpha($blue, 0.25), $brand-white); }
+.bg-grad-ltr-success-brand-white { @include makeGradient(getColorWithAlpha($green, 0.25), $brand-white); }
+.bg-grad-ltr-warning-brand-white { @include makeGradient(getColorWithAlpha($yellow, 0.25), $brand-white); }
+.bg-grad-ltr-danger-brand-white { @include makeGradient(getColorWithAlpha($red, 0.25), $brand-white); }
+
+// Border colors
+// We use !important here b/c most of the time
+// .border-{color} will be overwritten by .border classes
+.border-blue { border-color: $blue !important }
+.border-white { border-color: $white !important }
+.border-brand-white { border-color: $brand-white !important }
+.border-brand-black-7 { border-color: getColorWithLevel(brand-black, 7) }
+
+.border-white-input input { border-color: $white !important }

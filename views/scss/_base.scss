@@ -1,0 +1,12 @@
+html,
+body {
+  font-family: $font-sans-stack;
+  font-size: $pt-font-size;
+  line-height: 1.45;
+  margin: 0;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid $light-gray1;
+}

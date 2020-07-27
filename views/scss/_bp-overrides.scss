@@ -1,0 +1,160 @@
+/**
+ * Blueprint's "most important variable"
+ * Most sizes in Blueprint are based of of $pt-grid-size
+ * 12px gets us to ~16px base font-size
+ */
+ $pt-grid-size: 13px !default;
+
+ /**
+ * Font sizes
+ * Minimum recommended size is 12pt (16px)
+ * Large text is 14pt (18.667px) bold, or 18pt (24px)
+ */
+ $pt-font-size: $pt-grid-size * 1.44 !default; // ~18.72px
+ $pt-font-size-large: $pt-grid-size * 1.85 !default; // ~25px
+ $pt-font-size-small: $pt-grid-size * 1.25 !default; // ~16.25px
+ 
+ $pt-line-height: 1.5 !default;
+ 
+ // Icon sizes
+ $pt-icon-size-standard: $pt-grid-size * 1.5 !default;
+ 
+ // see https://bitsofco.de/the-new-system-font-stack/
+ $pt-font-family: "Graphik",
+                  -apple-system,
+                  "BlinkMacSystemFont",
+                  "Segoe UI",
+                  "Roboto",
+                  "Oxygen",
+                  "Ubuntu",
+                  "Cantarell",
+                  "Open Sans",
+                  "Helvetica Neue",
+                  "Arial",
+                  sans-serif !default;
+ $pt-font-family-monospace: "Atlas Typewriter", "Courier New", monospace !default;
+ 
+ // Input
+ $pt-input-height: $pt-grid-size * 3.5;
+ $pt-input-height-large: $pt-grid-size * 4.5;
+ $pt-input-height-small: $pt-grid-size * 1.5;
+ 
+ // Button (also affects select)
+ $pt-button-height: $pt-grid-size * 3.5;
+ $pt-button-height-large: $pt-grid-size * 4.5;
+ $pt-button-height-small: $pt-grid-size * 1.5;
+ $pt-button-height-smaller: $pt-grid-size * 1;
+
+// Colors here since some Blueprint overrides rely on them
+$brand: #F9AC31;
+$brand-black: #211E1F;
+$brand-white: #FFFBF0;
+
+$purple: #CF9FC5;
+$red: #E5562E;
+$yellow: #F9AC31;
+$green: #B2D07F;
+$blue: #457CBB;
+$grey: #211E1F;
+
+/**
+ * How Blueprint appears to use colors (so far)
+ * Colors have numbers 1 through 5 appended to them
+ * 1 is the darkest and 5 is the lightest
+ * 
+ * For intents, Blueprint uses $color3 as the primary color
+ * For button intents, Blueprint uses $color3, $color2, and $color1,
+ * representing default, hover, and active color
+ * 
+ * For "minimal" representations, the background color is
+ * background-color: rgba($color3, 0.15);
+ */
+
+// Blueprint None Intent Colors
+$black: #211E1F;
+$white: #FFF;
+
+$dark-gray1: #211F1F;
+$dark-gray2: #292727;
+$dark-gray3: #363332;
+$dark-gray4: #403C3B;
+$dark-gray5: #4A4544;
+
+$gray1: #706C69;
+$gray2: #85817C;
+$gray3: #999591;
+$gray4: #B5B1AC;
+$gray5: #C7C3BC;
+
+$light-gray1: #D9D5CC;
+$light-gray2: #E3DFD7;
+$light-gray3: #EBE8E2;
+$light-gray4: #F2EFE8;
+$light-gray5: #FAF6EE;
+
+// Blueprint Primary Intent Colors
+$blue1: #0E488A;
+$blue2: #1055A3;
+$blue3: #1363BD;
+$blue4: #2B7BD6;
+$blue5: #4897F0;
+
+// Blueprint Success Intent Colors
+$green1: #44660A;
+$green2: #56800D;
+$green3: #67990F;
+$green4: #79B315;
+$green5: #ACD660;
+
+// Blueprint Warning Intent Colors
+$orange1: #875C17;
+$orange2: #B37924;
+$orange3: #D98F1C;
+$orange4: #F2AA35;
+$orange5: #FFC466;
+
+// Blueprint Danger Intent Colors
+$red1: #8F3C23;
+$red2: #B54122;
+$red3: #D65029;
+$red4: #F06A41;
+$red5: #FF9473;
+
+// Color aliases
+$pt-intent-primary: $blue3;
+$pt-intent-success: $green4;
+$pt-intent-warning: $orange4;
+$pt-intent-danger: $red4;
+
+$pt-intent-colors: (
+  "primary": $pt-intent-primary,
+  "success": $pt-intent-success,
+  "warning": $pt-intent-warning,
+  "danger" : $pt-intent-danger,
+);
+$pt-intent-text-colors: (
+  "primary": $blue2,
+  "success": $green1,
+  "warning": $orange1,
+  "danger" : $red1,
+);
+$pt-dark-intent-text-colors: (
+  "primary": $blue4,
+  "success": $green4,
+  "warning": $orange4,
+  "danger" : $red4,
+);
+
+$pt-app-background-color: $brand-white;
+$pt-outline-color: rgba($orange3, 0.6);
+$pt-text-color: $brand-black;
+$pt-text-selection-color: rgba($orange3, 0.5);
+
+// Button (also affects select)
+$pt-button-height: $pt-grid-size * 4.5;
+$pt-button-height-large: $pt-grid-size * 5.5;
+$pt-button-height-small: $pt-grid-size * 2.5;
+$pt-button-height-smaller: $pt-grid-size * 2;
+// Tooltip
+$tooltip-background-color: $brand-black;
+$tooltip-text-color: $brand-white;

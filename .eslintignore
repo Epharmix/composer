@@ -1,0 +1,7 @@
+.app
+static
+webpack.config.js
+webpack.prod.js
+*.woff
+*.woff2
+*.scss

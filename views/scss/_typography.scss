@@ -1,0 +1,62 @@
+// Font families
+.font-sans { font-family: $font-sans-stack }
+.font-serif { font-family: $font-serif-stack }
+.font-monospace { font-family: $pt-font-family-monospace }
+
+// Font weights
+// Possible weights from our font files: 400, 600, 800
+.font-normal { font-weight: 400 }
+.font-bold { font-weight: 600 }
+.font-extrabold { font-weight: 800 }
+
+// Text transform
+.uppercase { text-transform: uppercase }
+
+// Text direction
+.text-center { text-align: center }
+.text-right { text-align: right }
+
+// Font style
+.italic { font-style: italic }
+
+// Text decoration
+.underline { text-decoration: underline }
+.no-underline { text-decoration: none }
+.hover-no-underline:hover { text-decoration: none }
+
+.dotted { position: relative }
+.dotted:after {
+  border-bottom: 1px dotted #656565;
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+// Text size utilities
+// Example outputs: .text-serif-sm, .text-sans-md
+@each $prefix, $value in $serif-size-map {
+  .text-serif-#{$prefix} {
+    font-size: map-get($value, fontSize);
+    line-height: map-get($value, lineHeight);
+  }
+}
+
+@each $prefix, $value in $sans-size-map {
+  .text-sans-#{$prefix} {
+    font-size: map-get($value, fontSize);
+    line-height: map-get($value, lineHeight);
+  }
+}
+
+// $type = serif || sans
+// $size = xs, sm, md, etc.
+// $value = fontSize || lineHeight
+@function getFromSizeMap($type, $size, $value) {
+  $map: $sans-size-map;
+  @if $type == serif {
+    $map: $serif-size-map;
+  }
+  @return map-get(map-get($map, $size), $value)
+}

@@ -1,0 +1,32 @@
+// The sass-loader uses Sass's custom importer feature to pass all queries to the Webpack resolving engine.
+// Thus you can import your Sass/CSS modules from node_modules. 
+// Just prepend them with a ~ to tell Webpack that this is not a relative import.
+
+@import "fonts/fonts";
+
+// Needs to go here because these colors are used in BP overrides
+@import "scss/bp-overrides";
+@import "scss/variables";
+
+// Note how we're importing the blueprint sass file from src
+@import "~@blueprintjs/core/src/blueprint";
+@import "~@blueprintjs/datetime/src/blueprint-datetime";
+// TO DO: Investigate why this doesn't seem to work
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+@import "scss/colors";
+@import "scss/spacing";
+@import "scss/display";
+@import "scss/floats";
+@import "scss/leading";
+@import "scss/position";
+@import "scss/image";
+@import "scss/z-index";
+@import "scss/sizing";
+@import "scss/typography";
+@import "scss/effects";
+@import "scss/borders";
+@import "scss/list";
+@import "scss/card";
+@import "scss/base";
+@import "scss/overrides";

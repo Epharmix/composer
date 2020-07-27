@@ -1,0 +1,81 @@
+$card-border-color: $pt-divider-black;
+
+.bp3-card-faded {
+  opacity: 0.5;
+}
+
+.bp3-card-block {
+  padding: $card-padding;
+}
+
+.bp3-card-block.bp3-card-block-bare {
+  padding: 0;
+}
+
+.bp3-card-block ~ .bp3-card-block {
+  border-top: 1px solid $card-border-color;
+}
+
+.bp3-card-title h1,
+.bp3-card-title h2,
+.bp3-card-title h3,
+.bp3-card-title h4,
+.bp3-card-title h5, 
+.bp3-card-title h6 {
+  margin-top: 0;
+  margin-bottom: $space--1;
+}
+
+$breakout-background: getColorWithLevel(grey, 8);
+
+.bp3-card-breakout {
+  position: relative;
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+  padding-top: $card-padding;
+  padding-bottom: $card-padding;
+  padding-left: $card-padding;
+  padding-right: $card-padding;
+  border: 1px solid $card-border-color;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: $breakout-background;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -10px;
+    left: $card-padding;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $card-border-color;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    top: -8px;
+    left: $card-padding;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $breakout-background;
+  }
+}
+
+.bp3-card-breakout-right {
+  &:before {
+    left: auto;
+    right: $card-padding;
+  }
+
+  &:after {
+    left: auto;
+    right: $card-padding;
+  }
+}
