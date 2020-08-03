@@ -1,5 +1,5 @@
 import Terminal from './terminal';
-import DummyBrain from './dummy';
+import ExampleBrain from './example';
 
-const terminal = new Terminal(new DummyBrain());
+const terminal = new Terminal(new ExampleBrain());
 terminal.start();
