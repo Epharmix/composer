@@ -1,0 +1,28 @@
+CONSTS:
+  happyThreshold: 7
+NODES:
+  qNode:
+    ROOT: true
+    REPLY: "From a scale of 1 to 10, how happy are you right now?"
+  hNode:
+    REPLY: "You seem happy."
+  sNode:
+    REPLY: "Go watch Always Sunny."
+LINKS:
+  -
+    FROM: qNode
+    TO: hNode
+    STORE: happiness
+    WHEN:
+      TYPE: NUMBER
+      MIN: CONST.happyThreshold
+      MIN_INCLUSIVE: true
+  -
+    FROM: qNode
+    TO: sNode
+    STORE: happiness
+    ALERT: "Patient #{PT_NAME} is not happy."
+    WHEN:
+      TYPE: NUMBER
+      MAX: CONST.happyThreshold
+      MAX_INCLUSIVE: false

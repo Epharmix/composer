@@ -92,6 +92,7 @@ class ExampleBrain implements TerminalBrain {
         isEnd: false
       };
     }
+    this.current = next;
     return {
       message: next.message,
       isEnd: next.isEnd()
